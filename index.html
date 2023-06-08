@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
+
+    <title>PERGUNTA</title>
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <h2 class="question">Cuzinho Hoje?</h2>
+        <div id="btnGroup"class="btn-group">
+            <button class="yes-btn" type="button" onclick="ocultarBtnGroup()">Sim</button>
+            <button class="no-btn">Não</button>
+        </div>
+
+    </div>
+
+    <script>
+            const wrapper = document.querySelector(".wrapper");
+            const question = document.querySelector(".question");
+            const btnGroup = document.querySelector("btnGroup");
+            const yesBtn = document.querySelector(".yes-btn");
+            const noBtn = document.querySelector(".no-btn");
+
+            const wrapperReact = wrapper.getBoundingClientRect();
+            const noBtnReact = noBtn.getBoundingClientRect();
+
+            yesBtn.addEventListener("click", () => {
+                question.innerHTML = "Fechou, então bora!";
+            });
+
+            function ocultarBtnGroup() {
+                document.querySelector("#btnGroup").style.display = "none";
+            }
+
+            noBtn.addEventListener("mouseover", () => {
+                const i =
+                    Math.floor(Math.random() * (wrapperReact.width - noBtnReact.width)) + 1;
+                const j =
+                    Math.floor(Math.random() * (wrapperReact.height - noBtnReact.height)) +
+                    1;
+
+                noBtn.style.left = i + "px";
+                noBtn.style.top = j + "px";
+            });
+    </script>
+
+</body>
+</html>
